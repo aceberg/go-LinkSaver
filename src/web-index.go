@@ -53,11 +53,13 @@ func webgui() {
 
 	http.HandleFunc("/", index)
 	http.HandleFunc("/add_link/", add_link)
+	http.HandleFunc("/all_tags/", all_tags)
 	http.HandleFunc("/edit_link/", edit_link)
 	http.HandleFunc("/save_link/", save_link)
 	http.HandleFunc("/del_link/", del_link)
 	http.HandleFunc("/sort_links/", sort_links)
 	http.HandleFunc("/tag/", tag)
+	http.HandleFunc("/search_links/", search_links)
 	http.HandleFunc("/theme/", theme)
 	http.HandleFunc("/home/", home)
 	http.ListenAndServe(address, nil)

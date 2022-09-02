@@ -21,7 +21,7 @@
                   <a class="nav-link active" href="/home/">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active" href="/home/">Tags</a>
+                  <a class="nav-link active" href="/all_tags/">Tags</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Theme</a>
@@ -55,9 +55,15 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <a href="https://github.com/aceberg/go-LinkSaver">
-                <h3><i class="bi bi-github"></i></h3>
-              </a>
+              <form action="/search_links/" method="post">
+              <li class="input-group nav-item">
+                <input name="search" type="text" class="form-control text-dark" placeholder="Search">
+                <button type="submit" class="btn btn-primary">Search</button>
+              </li>
+              </form>
+              <li class="nav-item"><a class="nav-link active" href="https://github.com/aceberg/go-LinkSaver">
+                <h3>&nbsp;&nbsp;&nbsp;<i class="bi bi-github"></i></h3>
+              </a></li>
             </ul>
         </div>
     </nav>
