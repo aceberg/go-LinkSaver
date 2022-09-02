@@ -17,11 +17,41 @@
 
         <table class="table table-striped">
             <tr>
-                <th>Name</th>
-                <th>Link</th>
-                <th>Date</th>
-                <th>Tag</th>
+            <form action="/sort_links/" method="post">
+                <th>Name
+                    <button type="submit" name="sort_method" value="name-up" class="btn btn-primary">
+                        <i class="bi bi-caret-up"></i>
+                    </button>
+                    <button type="submit" name="sort_method" value="name-down" class="btn btn-primary">
+                        <i class="bi bi-caret-down"></i>
+                    </button>
+                </th>
+                <th>Link
+                    <button type="submit" name="sort_method" value="link-up" class="btn btn-primary">
+                        <i class="bi bi-caret-up"></i>
+                    </button>
+                    <button type="submit" name="sort_method" value="link-down" class="btn btn-primary">
+                        <i class="bi bi-caret-down"></i>
+                    </button>
+                </th>
+                <th>Date
+                    <button type="submit" name="sort_method" value="date-up" class="btn btn-primary">
+                        <i class="bi bi-caret-up"></i>
+                    </button>
+                    <button type="submit" name="sort_method" value="date-down" class="btn btn-primary">
+                        <i class="bi bi-caret-down"></i>
+                    </button>
+                </th>
+                <th>Tag
+                    <button type="submit" name="sort_method" value="tag-up" class="btn btn-primary">
+                        <i class="bi bi-caret-up"></i>
+                    </button>
+                    <button type="submit" name="sort_method" value="tag-down" class="btn btn-primary">
+                        <i class="bi bi-caret-down"></i>
+                    </button>
+                </th>
                 <th></th>
+            </form>
             </tr>
             {{ range .Links }}
             <tr>

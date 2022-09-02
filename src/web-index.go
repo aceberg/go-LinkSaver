@@ -51,5 +51,6 @@ func webgui() {
 	http.HandleFunc("/edit_link/", edit_link)
 	http.HandleFunc("/save_link/", save_link)
 	http.HandleFunc("/del_link/", del_link)
+	http.HandleFunc("/sort_links/", sort_links)
 	http.ListenAndServe(address, nil)
 }

@@ -1,7 +1,7 @@
 package main
 
 import (
-	//"fmt"
+	"fmt"
 	"log"
 	"database/sql"
 	_ "github.com/mattn/go-sqlite3"
@@ -17,11 +17,24 @@ func db_exec(sqlStatement string) {
 	}
 }
 
-func db_select() (links []Link) {
+func db_select(params ...string) (links []Link) {
 	db, _ := sql.Open("sqlite3", AppConfig.DbPath)
 	defer db.Close()
 
-	sqlStatement := `SELECT * FROM "links" ORDER BY DATE DESC`
+	var field, way string
+
+	if len(params) != 2 {
+		field = "DATE"
+		way = "DESC"
+	} else {
+		field = params[0]
+		way = params[1]
+	}
+
+	sqlStatement := `SELECT * FROM "links" ORDER BY %s %s`
+	sqlStatement = fmt.Sprintf(sqlStatement, field, way)
+
+	// fmt.Println("SELECT QUERY:", sqlStatement)
 
 	res, err := db.Query(sqlStatement)
 	if err != nil {
