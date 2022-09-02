@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"database/sql"
 	_ "github.com/mattn/go-sqlite3"
@@ -17,24 +16,11 @@ func db_exec(sqlStatement string) {
 	}
 }
 
-func db_select(params ...string) (links []Link) {
+func db_select() (links []Link) {
 	db, _ := sql.Open("sqlite3", AppConfig.DbPath)
 	defer db.Close()
 
-	var field, way string
-
-	if len(params) != 2 {
-		field = "DATE"
-		way = "DESC"
-	} else {
-		field = params[0]
-		way = params[1]
-	}
-
-	sqlStatement := `SELECT * FROM "links" ORDER BY %s %s`
-	sqlStatement = fmt.Sprintf(sqlStatement, field, way)
-
-	// fmt.Println("SELECT QUERY:", sqlStatement)
+	sqlStatement := `SELECT * FROM "links" ORDER BY DATE DESC`
 
 	res, err := db.Query(sqlStatement)
 	if err != nil {
@@ -48,6 +34,10 @@ func db_select(params ...string) (links []Link) {
     	if err != nil {
 			log.Fatal(err)
     	}
+
+		oneLink.Name = unquote_str(oneLink.Name)
+		oneLink.Link = unquote_str(oneLink.Link)
+		oneLink.Tag = unquote_str(oneLink.Tag)
 
     	links = append(links, oneLink)
   	}

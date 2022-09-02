@@ -20,6 +20,11 @@ func index(w http.ResponseWriter, r *http.Request) {
 	tmpl.ExecuteTemplate(w, "index", guiData)
 }
 
+func home(w http.ResponseWriter, r *http.Request) {
+	AllLinks = db_select()
+	http.Redirect(w, r, "/", http.StatusSeeOther)
+}
+
 func add_link(w http.ResponseWriter, r *http.Request) {
 	var oneLink Link
 	oneLink.Name = r.FormValue("name")
@@ -52,5 +57,8 @@ func webgui() {
 	http.HandleFunc("/save_link/", save_link)
 	http.HandleFunc("/del_link/", del_link)
 	http.HandleFunc("/sort_links/", sort_links)
+	http.HandleFunc("/tag/", tag)
+	http.HandleFunc("/theme/", theme)
+	http.HandleFunc("/home/", home)
 	http.ListenAndServe(address, nil)
 }

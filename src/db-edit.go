@@ -25,7 +25,7 @@ func db_create() {
 func db_insert(oneLink Link) {
 	sqlStatement := `INSERT INTO "links" (NAME, LINK, DATE, TAG)
 		VALUES ('%s','%s','%s','%s');`
-  	sqlStatement = fmt.Sprintf(sqlStatement, oneLink.Name, oneLink.Link, oneLink.Date, oneLink.Tag)
+  	sqlStatement = fmt.Sprintf(sqlStatement, quote_str(oneLink.Name), quote_str(oneLink.Link), oneLink.Date, quote_str(oneLink.Tag))
     db_exec(sqlStatement)
 }
 

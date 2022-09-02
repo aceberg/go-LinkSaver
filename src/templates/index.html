@@ -8,9 +8,9 @@
     <div class="container mt-3">
         <form action="/add_link/" method="post">
             <div class="input-group">
-                <input name="name" type="text" class="form-control text-dark" style="max-width: 25%" placeholder="Name">
+                <input name="name" type="text" class="form-control text-dark" style="max-width: 20%" placeholder="Name">
                 <input name="link" type="text" class="form-control text-dark" placeholder="Link">
-                <input name="tag" type="text" class="form-control text-dark" style="max-width: 10%" placeholder="Tag">
+                <input name="tag" type="text" class="form-control text-dark" style="max-width: 15%" placeholder="Tag">
                 <button type="submit" class="btn btn-primary">Add</button>
             </div>
         </form>
@@ -18,7 +18,7 @@
         <table class="table table-striped">
             <tr>
             <form action="/sort_links/" method="post">
-                <th>Name
+                <th>Name<br>
                     <button type="submit" name="sort_method" value="name-up" class="btn btn-primary">
                         <i class="bi bi-caret-up"></i>
                     </button>
@@ -26,7 +26,7 @@
                         <i class="bi bi-caret-down"></i>
                     </button>
                 </th>
-                <th>Link
+                <th>Link<br>
                     <button type="submit" name="sort_method" value="link-up" class="btn btn-primary">
                         <i class="bi bi-caret-up"></i>
                     </button>
@@ -34,7 +34,7 @@
                         <i class="bi bi-caret-down"></i>
                     </button>
                 </th>
-                <th>Date
+                <th>Date<br>
                     <button type="submit" name="sort_method" value="date-up" class="btn btn-primary">
                         <i class="bi bi-caret-up"></i>
                     </button>
@@ -42,13 +42,13 @@
                         <i class="bi bi-caret-down"></i>
                     </button>
                 </th>
-                <th>Tag
-                    <button type="submit" name="sort_method" value="tag-up" class="btn btn-primary">
+                <th>Tag<br>
+                    <!-- <button type="submit" name="sort_method" value="tag-up" class="btn btn-primary">
                         <i class="bi bi-caret-up"></i>
                     </button>
                     <button type="submit" name="sort_method" value="tag-down" class="btn btn-primary">
                         <i class="bi bi-caret-down"></i>
-                    </button>
+                    </button> -->
                 </th>
                 <th></th>
             </form>
@@ -61,7 +61,7 @@
                 <input name="link" type="hidden" class="form-control" value="{{ .Link }}">
                 <input name="date" type="hidden" class="form-control" value="{{ .Date }}">
                 <input name="tag" type="hidden" class="form-control" value="{{ .Tag }}">
-                <td>{{ .Name }}</td>
+                <td style="min-width: 10%">{{ .Name }}</td>
                 <td><a href="{{ .Link }}">{{ .Link }}</a></td>
                 <td>{{ .Date }}</td>
                 <td><a href="tag/{{ .Tag }}">{{ .Tag }}</a></td>

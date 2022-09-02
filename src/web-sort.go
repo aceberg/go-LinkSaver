@@ -2,6 +2,7 @@ package main
 
 import (
   "net/http"
+  "sort"
 )
 
 func sort_links(w http.ResponseWriter, r *http.Request) {
@@ -10,21 +11,37 @@ func sort_links(w http.ResponseWriter, r *http.Request) {
 
 	switch sort_method {
 	case "name-up":
-		AllLinks = db_select("NAME","ASC")
+		sort.SliceStable(AllLinks, func(i, j int) bool {
+			return AllLinks[i].Name < AllLinks[j].Name
+		})
 	case "name-down":
-		AllLinks = db_select("NAME","DESC")
+		sort.SliceStable(AllLinks, func(i, j int) bool {
+			return AllLinks[i].Name > AllLinks[j].Name
+		})
 	case "link-up":
-		AllLinks = db_select("LINK","ASC")
+		sort.SliceStable(AllLinks, func(i, j int) bool {
+			return AllLinks[i].Link < AllLinks[j].Link
+		})
 	case "link-down":
-		AllLinks = db_select("LINK","DESC")
+		sort.SliceStable(AllLinks, func(i, j int) bool {
+			return AllLinks[i].Link > AllLinks[j].Link
+		})
 	case "date-up":
-		AllLinks = db_select("DATE","ASC")
+		sort.SliceStable(AllLinks, func(i, j int) bool {
+			return AllLinks[i].Date < AllLinks[j].Date
+		})
 	case "date-down":
-		AllLinks = db_select("DATE","DESC")
+		sort.SliceStable(AllLinks, func(i, j int) bool {
+			return AllLinks[i].Date > AllLinks[j].Date
+		})
 	case "tag-up":
-		AllLinks = db_select("TAG","ASC")
+		sort.SliceStable(AllLinks, func(i, j int) bool {
+			return AllLinks[i].Tag < AllLinks[j].Tag
+		})
 	case "tag-down":
-		AllLinks = db_select("TAG","DESC")
+		sort.SliceStable(AllLinks, func(i, j int) bool {
+			return AllLinks[i].Tag > AllLinks[j].Tag
+		})
 	default:
 		AllLinks = db_select()
 	}
