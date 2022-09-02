@@ -29,5 +29,5 @@ func main() {
 	AllLinks = db_select()
 	fmt.Println("AllLinks: ", AllLinks)
 
-	webgui() // index.go
+	webgui() // web-index.go
 }

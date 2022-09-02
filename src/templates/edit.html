@@ -1,0 +1,29 @@
+{{ define "edit"}}
+
+{{ template "header" }}
+    <!--Bootstrap theme-->
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.2.0/dist/{{ .Config.Theme }}/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-3">
+        <h3>Edit link</h3>
+        <div class="d-flex justify-content-center">
+            <form action="/del_link/" method="post">
+                <input name="id" value="{{ .Link.Id }}" type="hidden" class="form-control">
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+        </div>
+        <div class="d-flex justify-content-center">
+            <form action="/save_link/" method="post">
+                <input name="id" value="{{ .Link.Id }}" type="hidden" class="form-control">
+                <input name="name" value="{{ .Link.Name }}" type="text" class="form-control text-dark">
+                <input name="link" value="{{ .Link.Link }}" type="text" class="form-control text-dark">
+                <input name="date" value="{{ .Link.Date }}" type="text" class="form-control text-dark">
+                <input name="tag" value="{{ .Link.Tag }}" type="text"  class="form-control text-dark">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+        </div>
+    </div>
+
+{{ template "footer" }}
+{{ end }}

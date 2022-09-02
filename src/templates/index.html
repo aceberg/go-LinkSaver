@@ -21,13 +21,26 @@
                 <th>Link</th>
                 <th>Date</th>
                 <th>Tag</th>
+                <th></th>
             </tr>
             {{ range .Links }}
             <tr>
+            <form action="/edit_link/" method="post">
+                <input name="id" type="hidden" class="form-control" value="{{ .Id }}">
+                <input name="name" type="hidden" class="form-control" value="{{ .Name }}">
+                <input name="link" type="hidden" class="form-control" value="{{ .Link }}">
+                <input name="date" type="hidden" class="form-control" value="{{ .Date }}">
+                <input name="tag" type="hidden" class="form-control" value="{{ .Tag }}">
                 <td>{{ .Name }}</td>
                 <td><a href="{{ .Link }}">{{ .Link }}</a></td>
                 <td>{{ .Date }}</td>
-                <td><a href="{{ .Tag }}">{{ .Tag }}</a></td>
+                <td><a href="tag/{{ .Tag }}">{{ .Tag }}</a></td>
+                <td>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-pencil"></i>
+                    </button>
+                </td>
+            </form>
             </tr>
             {{ end }}
         </table>

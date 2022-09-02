@@ -28,3 +28,9 @@ func db_insert(oneLink Link) {
   	sqlStatement = fmt.Sprintf(sqlStatement, oneLink.Name, oneLink.Link, oneLink.Date, oneLink.Tag)
     db_exec(sqlStatement)
 }
+
+func db_delete(id uint16) {
+	sqlStatement := `DELETE FROM "links" WHERE ID='%d';`
+  	sqlStatement = fmt.Sprintf(sqlStatement, id)
+    db_exec(sqlStatement)
+}
