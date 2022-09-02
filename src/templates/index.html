@@ -1,0 +1,38 @@
+{{ define "index"}}
+
+{{ template "header" }}
+    <!--Bootstrap theme-->
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.2.0/dist/{{ .Config.Theme }}/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-3">
+        <form action="/add_link/" method="post">
+            <div class="input-group">
+                <input name="name" type="text" class="form-control text-dark" style="max-width: 25%" placeholder="Name">
+                <input name="link" type="text" class="form-control text-dark" placeholder="Link">
+                <input name="tag" type="text" class="form-control text-dark" style="max-width: 10%" placeholder="Tag">
+                <button type="submit" class="btn btn-primary">Add</button>
+            </div>
+        </form>
+
+        <table class="table table-striped">
+            <tr>
+                <th>Name</th>
+                <th>Link</th>
+                <th>Date</th>
+                <th>Tag</th>
+            </tr>
+            {{ range .Links }}
+            <tr>
+                <td>{{ .Name }}</td>
+                <td><a href="{{ .Link }}">{{ .Link }}</a></td>
+                <td>{{ .Date }}</td>
+                <td><a href="{{ .Tag }}">{{ .Tag }}</a></td>
+            </tr>
+            {{ end }}
+        </table>
+        
+    </div>
+
+{{ template "footer" }}
+{{ end }}
