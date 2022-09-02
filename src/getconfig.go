@@ -23,3 +23,10 @@ func get_config() (config Conf) {
 
 	return config
 }
+
+func write_config() {
+	viper.SetConfigFile("data/config")
+	viper.SetConfigType("env")
+	viper.Set("THEME", AppConfig.Theme)
+	viper.WriteConfig()
+}

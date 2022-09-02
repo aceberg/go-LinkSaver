@@ -14,6 +14,7 @@ func theme(w http.ResponseWriter, r *http.Request) {
 		oneTheme := tags[2]
 
 		AppConfig.Theme = oneTheme
+		write_config()
 	} 
 
 	http.Redirect(w, r, "/", http.StatusSeeOther)
