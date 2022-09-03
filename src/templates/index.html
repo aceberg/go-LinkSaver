@@ -10,7 +10,7 @@
             <div class="input-group">
                 <input name="name" type="text" class="form-control text-dark" style="max-width: 20%" placeholder="Name">
                 <input name="link" type="text" class="form-control text-dark" placeholder="Link">
-                <input name="tag" type="text" class="form-control text-dark" style="max-width: 15%" placeholder="Tag">
+                <input name="tag" type="text" class="form-control text-dark" style="max-width: 20%" placeholder="Tag">
                 <button type="submit" class="btn btn-primary">Add</button>
             </div>
         </form>
@@ -19,36 +19,30 @@
             <tr>
             <form action="/sort_links/" method="post">
                 <th>Name<br>
-                    <button type="submit" name="sort_method" value="name-up" class="btn btn-primary">
+                    <button type="submit" name="sort_method" value="name-up" class="btn btn-primary btn-sm">
                         <i class="bi bi-caret-up"></i>
                     </button>
-                    <button type="submit" name="sort_method" value="name-down" class="btn btn-primary">
+                    <button type="submit" name="sort_method" value="name-down" class="btn btn-primary btn-sm">
                         <i class="bi bi-caret-down"></i>
                     </button>
                 </th>
                 <th>Link<br>
-                    <button type="submit" name="sort_method" value="link-up" class="btn btn-primary">
+                    <button type="submit" name="sort_method" value="link-up" class="btn btn-primary btn-sm">
                         <i class="bi bi-caret-up"></i>
                     </button>
-                    <button type="submit" name="sort_method" value="link-down" class="btn btn-primary">
+                    <button type="submit" name="sort_method" value="link-down" class="btn btn-primary btn-sm">
                         <i class="bi bi-caret-down"></i>
                     </button>
                 </th>
                 <th>Date<br>
-                    <button type="submit" name="sort_method" value="date-up" class="btn btn-primary">
+                    <button type="submit" name="sort_method" value="date-up" class="btn btn-primary btn-sm">
                         <i class="bi bi-caret-up"></i>
                     </button>
-                    <button type="submit" name="sort_method" value="date-down" class="btn btn-primary">
+                    <button type="submit" name="sort_method" value="date-down" class="btn btn-primary btn-sm">
                         <i class="bi bi-caret-down"></i>
                     </button>
                 </th>
-                <th>Tag<br>
-                    <!-- <button type="submit" name="sort_method" value="tag-up" class="btn btn-primary">
-                        <i class="bi bi-caret-up"></i>
-                    </button>
-                    <button type="submit" name="sort_method" value="tag-down" class="btn btn-primary">
-                        <i class="bi bi-caret-down"></i>
-                    </button> -->
+                <th>Tag
                 </th>
                 <th></th>
             </form>
