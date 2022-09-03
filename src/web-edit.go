@@ -2,6 +2,7 @@ package main
 
 import (
   "fmt"
+  "log"
   "net/http"
   "html/template"
   "strconv"
@@ -43,7 +44,7 @@ func save_link(w http.ResponseWriter, r *http.Request) {
 	oneLink.Date = r.FormValue("date")
 	oneLink.Tag = r.FormValue("tag")
 
-	//fmt.Println("Save link:", oneLink)
+	log.Println("INFO: Edited", oneLink)
 
 	if oneLink.Link == "" {
 		fmt.Fprintf(w, "No data!")
@@ -62,7 +63,7 @@ func del_link(w http.ResponseWriter, r *http.Request) {
 	id, _ := strconv.Atoi(idStr)
 	dbID := uint16(id)
 
-	//fmt.Println("Del link ID:", dbID)
+	log.Println("INFO: Deleted ID", dbID)
 
 	db_delete(dbID)
 	AllLinks = db_select()

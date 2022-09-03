@@ -1,8 +1,8 @@
 package main
 
-import (
-	"fmt"
-)
+// import (
+// 	"fmt"
+// )
 
 type Link struct {
 	Id 	 uint16
@@ -24,10 +24,9 @@ var AppConfig Conf
 
 func main() {
 	AppConfig = get_config()
-	fmt.Println("AppConfig: ", AppConfig)
-	db_create()
-	AllLinks = db_select()
-	fmt.Println("AllLinks: ", AllLinks)
 
-	webgui() // web-index.go
+	db_create() 			// Create DB if not existed
+	AllLinks = db_select()	// Select all links from DB
+
+	webgui() 				// web-index.go
 }

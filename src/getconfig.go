@@ -4,13 +4,15 @@ import (
 	"github.com/spf13/viper"
 )
 
+var configPath = "/data/linksaver/config"
+
 func get_config() (config Conf) {
-	viper.SetDefault("DBPATH", "data/db.sqlite")
-	viper.SetDefault("GUIIP", "localhost")
+	viper.SetDefault("DBPATH", "/data/linksaver/db.sqlite")
+	viper.SetDefault("GUIIP", "0.0.0.0")
 	viper.SetDefault("GUIPORT", "8841")
 	viper.SetDefault("THEME", "minty")
 
-    viper.SetConfigFile("data/config")
+    viper.SetConfigFile(configPath)
 	viper.SetConfigType("env")
     viper.ReadInConfig()
 
@@ -25,7 +27,7 @@ func get_config() (config Conf) {
 }
 
 func write_config() {
-	viper.SetConfigFile("data/config")
+	viper.SetConfigFile(configPath)
 	viper.SetConfigType("env")
 	viper.Set("THEME", AppConfig.Theme)
 	viper.WriteConfig()
