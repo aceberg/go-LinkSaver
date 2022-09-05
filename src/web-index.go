@@ -48,9 +48,7 @@ func add_link(w http.ResponseWriter, r *http.Request) {
 func webgui() {
 	address := AppConfig.GuiIP + ":" + AppConfig.GuiPort
 
-	log.Println("=================================== ")
-	log.Println(fmt.Sprintf("Web GUI at http://%s", address))
-	log.Println("=================================== ")
+	log.Println("INFO: Web GUI at port", AppConfig.GuiPort)
 
 	http.HandleFunc("/", index)
 	http.HandleFunc("/add_link/", add_link)
