@@ -3,16 +3,16 @@ name: Publish to ghcr.io
 on:
   push:
     branches: [ "main" ]
-    paths:
-    - 'Dockerfile'
-    - '.version'
-    - 'src/**'
+    # paths:
+    # - 'Dockerfile'
+    # - '.version'
+    # - 'src/**'
   pull_request:
     branches: [ "main" ]
-    paths:
-    - 'Dockerfile'
-    - '.version'
-    - 'src/**'
+    # paths:
+    # - 'Dockerfile'
+    # - '.version'
+    # - 'src/**'
 
 env:
   IMAGE_NAME: go-linksaver
