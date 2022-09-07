@@ -5,11 +5,12 @@ package main
 // )
 
 type Link struct {
-	Id 	 uint16
-	Name string
-	Link string
-	Date string
-	Tag  string
+	Id 	  uint16
+	Name  string
+	Link  string
+	Date  string
+	Tag   string
+	Tags  []string
 }
 
 type Conf struct {

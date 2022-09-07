@@ -17,5 +17,5 @@ func theme(w http.ResponseWriter, r *http.Request) {
 		write_config()
 	} 
 
-	http.Redirect(w, r, "/", http.StatusSeeOther)
+	http.Redirect(w, r, r.Header.Get("Referer"), 302)
 }

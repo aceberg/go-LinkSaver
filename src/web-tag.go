@@ -16,8 +16,11 @@ func tag(w http.ResponseWriter, r *http.Request) {
 
 		foundLinks := []Link{}
 
+		AllLinks = db_select()
+		split_tags()
+
 		for _, oneLink := range AllLinks {
-			if oneLink.Tag == oneTag {
+			if in_array(oneLink.Tags, oneTag) {
 				foundLinks = append(foundLinks, oneLink)
 			} 
 		}
@@ -25,7 +28,7 @@ func tag(w http.ResponseWriter, r *http.Request) {
 		AllLinks = foundLinks
 	} 
 
-	http.Redirect(w, r, "/", http.StatusSeeOther)
+	http.Redirect(w, r, "/", 302)
 }
 
 func all_tags(w http.ResponseWriter, r *http.Request) {
@@ -33,14 +36,16 @@ func all_tags(w http.ResponseWriter, r *http.Request) {
 		Config Conf
 		Tags []string
 	}
+	split_tags()
 	var guiData allData
-
 	guiData.Config = AppConfig
 	guiData.Tags = []string{}
 
-	for _, link := range AllLinks {
-		if !in_array(guiData.Tags, link.Tag) {
-			guiData.Tags = append(guiData.Tags, link.Tag)
+	for _, oneLink := range AllLinks {
+		for _, oneTag := range oneLink.Tags {
+			if !in_array(guiData.Tags, oneTag) {
+				guiData.Tags = append(guiData.Tags, oneTag)
+			}
 		}
 	}
 
@@ -57,4 +62,10 @@ func in_array(tags []string, oneTag string) (bool) {
 		}
 	}
 	return false
+}
+
+func split_tags() {
+	for i, oneLink := range AllLinks {
+		AllLinks[i].Tags = strings.Split(oneLink.Tag, " ")
+	}
 }

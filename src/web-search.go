@@ -7,6 +7,7 @@ import (
 
 func search_links(w http.ResponseWriter, r *http.Request) {
 	search := r.FormValue("search")
+	AllLinks = db_select()
 
 	foundLinks := []Link{}
 	for _, oneLink := range AllLinks {
@@ -22,7 +23,7 @@ func search_links(w http.ResponseWriter, r *http.Request) {
 	}
 	AllLinks = foundLinks
 
-	http.Redirect(w, r, "/", http.StatusSeeOther)
+	http.Redirect(w, r, r.Header.Get("Referer"), 302)
 }
 
 func in_string (str1 string, str2 string) (bool) {

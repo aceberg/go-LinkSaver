@@ -13,6 +13,7 @@ func index(w http.ResponseWriter, r *http.Request) {
 		Config Conf
 		Links []Link
 	}
+	split_tags()
 	var guiData allData
 	guiData.Config = AppConfig
 	guiData.Links = AllLinks
@@ -42,7 +43,7 @@ func add_link(w http.ResponseWriter, r *http.Request) {
 		AllLinks = db_select()
 	}
 
-	http.Redirect(w, r, "/", http.StatusSeeOther)
+	http.Redirect(w, r, r.Header.Get("Referer"), 302)
 }
 
 func webgui() {

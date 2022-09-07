@@ -46,5 +46,5 @@ func sort_links(w http.ResponseWriter, r *http.Request) {
 		AllLinks = db_select()
 	}
 
-	http.Redirect(w, r, "/", http.StatusSeeOther)
+	http.Redirect(w, r, r.Header.Get("Referer"), 302)
 }
