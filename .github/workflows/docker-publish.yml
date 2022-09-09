@@ -53,6 +53,7 @@ jobs:
           image: ${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}
           tags: latest, ${{ env.VERSION }}
           platform: linux/amd64,linux/arm/v7,linux/arm64
+          enableBuildKit: true
           registry: docker.io
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
