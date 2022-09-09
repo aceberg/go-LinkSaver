@@ -1,6 +1,7 @@
 name: Docker
 
 on:
+  workflow_dispatch:
   push:
     branches: [ "main" ]
     paths:
@@ -47,7 +48,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and Push Docker Image to docker.io
-        uses: mr-smithers-excellent/docker-build-push@v5.6
+        uses: mr-smithers-excellent/docker-build-push@master
         with:
           image: ${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}
           tags: latest, ${{ env.VERSION }}
