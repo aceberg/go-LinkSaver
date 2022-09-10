@@ -37,7 +37,7 @@ func add_link(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "No data!")
 	} else {
 		currentTime := time.Now()
-		oneLink.Date = currentTime.Format("2006-01-02 15:04:05")
+		oneLink.Date = currentTime.Format("2006-01-02")
 		log.Println("INFO: Added", oneLink)
 		db_insert(oneLink)
 		AllLinks = db_select()

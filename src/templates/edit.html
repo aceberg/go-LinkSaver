@@ -16,10 +16,10 @@
         <form action="/save_link/" method="post">
             <div class="w-75 mx-auto">
                 <input name="id" value="{{ .Link.Id }}" type="hidden" class="form-control">
-                <input name="name" value="{{ .Link.Name }}" type="text" class="form-control text-dark">
-                <input name="link" value="{{ .Link.Link }}" type="text" class="form-control text-dark">
-                <input name="date" value="{{ .Link.Date }}" type="text" class="form-control text-dark">
-                <input name="tag" value="{{ .Link.Tag }}" type="text"  class="form-control text-dark">
+                <input name="name" value="{{ .Link.Name }}" type="text" class="form-control text-dark" placeholder="Name">
+                <input name="link" value="{{ .Link.Link }}" type="text" class="form-control text-dark" placeholder="Link">
+                <input name="date" value="{{ .Link.Date }}" type="date" class="form-control text-dark" placeholder="Date">
+                <input name="tag" value="{{ .Link.Tag }}" type="text"  class="form-control text-dark" placeholder="Tags (space separated)">
                 <button type="submit" class="btn btn-primary">Save</button>
             </div>
         </form>

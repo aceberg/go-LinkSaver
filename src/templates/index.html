@@ -56,7 +56,7 @@
                 <input name="date" type="hidden" class="form-control" value="{{ .Date }}">
                 <input name="tag" type="hidden" class="form-control" value="{{ .Tag }}">
                 <td style="min-width: 10%">{{ .Name }}</td>
-                <td><a href="{{ .Link }}" target=”_blank”>{{ .Link }}</a></td>
+                <td><a class="d-inline-block text-truncate" style="max-width: 500px;" href="{{ .Link }}" target=”_blank”>{{ .Link }}</a></td>
                 <td>{{ .Date }}</td>
                 <td>
                     {{ range .Tags }}
