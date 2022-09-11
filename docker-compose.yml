@@ -8,7 +8,7 @@ services:
     volumes:
     - ~/.dockerdata/linksaver:/data/linksaver
     environment:
-      TZ: Asia/Novosibirsk              # required: needs your TZ for correct time
-      DBPATH: "/data/db.sqlite"         # optional, default: /data/linksaver/db.sqlite
-      GUIPORT: "8841"                   # optional, default: 8841
-      THEME: "darkly"                   # optional, default: minty
+      TZ: Asia/Novosibirsk                # required: needs your TZ for correct time
+      DBPATH: "/data/linksaver/db.sqlite" # optional, default: /data/linksaver/db.sqlite
+      GUIPORT: "8841"                     # optional, default: 8841
+      THEME: "darkly"                     # optional, default: minty
