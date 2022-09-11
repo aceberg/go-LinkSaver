@@ -1,0 +1,14 @@
+version: "3"
+services:
+  linksaver:
+    image: aceberg/go-linksaver       
+    restart: unless-stopped
+    ports:
+    - 8841:8841
+    volumes:
+    - ~/.dockerdata/linksaver:/data/linksaver
+    environment:
+      TZ: Asia/Novosibirsk              # required: needs your TZ for correct time
+      DBPATH: "/data/db.sqlite"         # optional, default: /data/linksaver/db.sqlite
+      GUIPORT: "8841"                   # optional, default: 8841
+      THEME: "darkly"                   # optional, default: minty
