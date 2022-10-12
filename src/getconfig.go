@@ -12,9 +12,9 @@ func get_config() (config Conf) {
 	viper.SetDefault("GUIPORT", "8841")
 	viper.SetDefault("THEME", "minty")
 
-    viper.SetConfigFile(configPath)
+	viper.SetConfigFile(configPath)
 	viper.SetConfigType("env")
-    viper.ReadInConfig()
+	viper.ReadInConfig()
 
 	viper.AutomaticEnv() // Get ENVIRONMENT variables
 

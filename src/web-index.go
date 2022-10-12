@@ -1,17 +1,17 @@
 package main
 
 import (
-  "fmt"
-  "log"
-  "net/http"
-  "html/template"
-  "time"
+	"fmt"
+	"html/template"
+	"log"
+	"net/http"
+	"time"
 )
 
 func index(w http.ResponseWriter, r *http.Request) {
 	type allData struct {
 		Config Conf
-		Links []Link
+		Links  []Link
 	}
 	split_tags()
 	var guiData allData
@@ -49,7 +49,9 @@ func add_link(w http.ResponseWriter, r *http.Request) {
 func webgui() {
 	address := AppConfig.GuiIP + ":" + AppConfig.GuiPort
 
-	log.Println("INFO: Web GUI at port", AppConfig.GuiPort)
+	log.Println("=================================== ")
+	log.Printf("Web GUI at http://%s", address)
+	log.Println("=================================== ")
 
 	http.HandleFunc("/", index)
 	http.HandleFunc("/add_link/", add_link)

@@ -1,8 +1,8 @@
 package main
 
 import (
-  "net/http"
-  "strings"
+	"net/http"
+	"strings"
 )
 
 func search_links(w http.ResponseWriter, r *http.Request) {
@@ -26,9 +26,9 @@ func search_links(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, r.Header.Get("Referer"), 302)
 }
 
-func in_string (str1 string, str2 string) (bool) {
+func in_string(str1 string, str2 string) bool {
 	return strings.Contains(
 		strings.ToLower(str1),
-        strings.ToLower(str2),
+		strings.ToLower(str2),
 	)
 }

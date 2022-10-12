@@ -1,9 +1,9 @@
 package main
 
 import (
-  "net/http"
-  "html"
-  "strings"
+	"html"
+	"net/http"
+	"strings"
 )
 
 func theme(w http.ResponseWriter, r *http.Request) {
@@ -15,7 +15,7 @@ func theme(w http.ResponseWriter, r *http.Request) {
 
 		AppConfig.Theme = oneTheme
 		write_config()
-	} 
+	}
 
 	http.Redirect(w, r, r.Header.Get("Referer"), 302)
 }

@@ -1,11 +1,11 @@
 package main
 
 import (
-  "net/http"
-  "html/template"
-  "html"
-  "strings"
-  "sort"
+	"html"
+	"html/template"
+	"net/http"
+	"sort"
+	"strings"
 )
 
 func tag(w http.ResponseWriter, r *http.Request) {
@@ -22,11 +22,11 @@ func tag(w http.ResponseWriter, r *http.Request) {
 		for _, oneLink := range AllLinks {
 			if in_array(oneLink.Tags, oneTag) {
 				foundLinks = append(foundLinks, oneLink)
-			} 
+			}
 		}
 
 		AllLinks = foundLinks
-	} 
+	}
 
 	http.Redirect(w, r, "/", 302)
 }
@@ -34,7 +34,7 @@ func tag(w http.ResponseWriter, r *http.Request) {
 func all_tags(w http.ResponseWriter, r *http.Request) {
 	type allData struct {
 		Config Conf
-		Tags []string
+		Tags   []string
 	}
 	split_tags()
 	var guiData allData
@@ -55,7 +55,7 @@ func all_tags(w http.ResponseWriter, r *http.Request) {
 	tmpl.ExecuteTemplate(w, "tags", guiData)
 }
 
-func in_array(tags []string, oneTag string) (bool) {
+func in_array(tags []string, oneTag string) bool {
 	for _, tag := range tags {
 		if tag == oneTag {
 			return true

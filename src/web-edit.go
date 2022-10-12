@@ -1,17 +1,17 @@
 package main
 
 import (
-  "fmt"
-  "log"
-  "net/http"
-  "html/template"
-  "strconv"
+	"fmt"
+	"html/template"
+	"log"
+	"net/http"
+	"strconv"
 )
 
 func edit_link(w http.ResponseWriter, r *http.Request) {
 	type allData struct {
 		Config Conf
-		Link Link
+		Link   Link
 	}
 	var guiData allData
 	var oneLink Link
@@ -67,7 +67,6 @@ func del_link(w http.ResponseWriter, r *http.Request) {
 
 	db_delete(dbID)
 	AllLinks = db_select()
-	
 
 	http.Redirect(w, r, "/", http.StatusSeeOther)
 }

@@ -1,8 +1,8 @@
 package main
 
 import (
-  "net/http"
-  "sort"
+	"net/http"
+	"sort"
 )
 
 func sort_links(w http.ResponseWriter, r *http.Request) {
