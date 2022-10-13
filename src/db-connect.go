@@ -2,12 +2,12 @@ package main
 
 import (
 	"database/sql"
-	_ "github.com/mattn/go-sqlite3"
 	"log"
+	_ "modernc.org/sqlite"
 )
 
 func db_exec(sqlStatement string) {
-	db, _ := sql.Open("sqlite3", AppConfig.DbPath)
+	db, _ := sql.Open("sqlite", AppConfig.DbPath)
 	defer db.Close()
 
 	_, err := db.Exec(sqlStatement)
@@ -17,7 +17,7 @@ func db_exec(sqlStatement string) {
 }
 
 func db_select() (links []Link) {
-	db, _ := sql.Open("sqlite3", AppConfig.DbPath)
+	db, _ := sql.Open("sqlite", AppConfig.DbPath)
 	defer db.Close()
 
 	sqlStatement := `SELECT * FROM "links" ORDER BY DATE DESC`
