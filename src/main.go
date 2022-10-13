@@ -1,8 +1,8 @@
 package main
 
-// import (
-// 	"fmt"
-// )
+import (
+	"embed"
+)
 
 type Link struct {
 	Id   uint16
@@ -22,6 +22,9 @@ type Conf struct {
 
 var AllLinks []Link
 var AppConfig Conf
+
+//go:embed templates/*
+var TemplHTML embed.FS
 
 func main() {
 	AppConfig = get_config()

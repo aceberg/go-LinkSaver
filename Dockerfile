@@ -12,7 +12,6 @@ WORKDIR /app
 RUN apk add --no-cache tzdata \
     && mkdir -p /data/linksaver
 
-COPY src/templates /app/templates
 COPY --from=builder /src/linksaver /app/
 
 ENTRYPOINT ["./linksaver"]

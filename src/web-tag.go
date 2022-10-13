@@ -51,7 +51,7 @@ func all_tags(w http.ResponseWriter, r *http.Request) {
 
 	sort.Strings(guiData.Tags)
 
-	tmpl, _ := template.ParseFiles("templates/tags.html", "templates/header.html", "templates/footer.html")
+	tmpl, _ := template.ParseFS(TemplHTML, "templates/tags.html", "templates/header.html", "templates/footer.html")
 	tmpl.ExecuteTemplate(w, "tags", guiData)
 }
 

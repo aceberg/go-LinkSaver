@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [0.3.2] - 2022-10-13
 ### Changed
 - Switched to CGO-free sqlite "modernc.org/sqlite"
+- Embed html templates in binary
 
 ## [0.3.1] - 2022-09-10
 ### Added

@@ -29,7 +29,7 @@ func edit_link(w http.ResponseWriter, r *http.Request) {
 	guiData.Config = AppConfig
 	guiData.Link = oneLink
 
-	tmpl, _ := template.ParseFiles("templates/edit.html", "templates/header.html", "templates/footer.html")
+	tmpl, _ := template.ParseFS(TemplHTML, "templates/edit.html", "templates/header.html", "templates/footer.html")
 	tmpl.ExecuteTemplate(w, "edit", guiData)
 }
 
