@@ -11,6 +11,10 @@ run:
 	cd src && \
 	go run .
 
+fmt:
+	cd src && \
+	go fmt ./...
+
 go-build:
 	cd src && \
 	CGO_ENABLED=0 go build .
