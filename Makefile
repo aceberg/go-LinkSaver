@@ -17,7 +17,7 @@ fmt:
 
 go-build:
 	cd src && \
-	CGO_ENABLED=0 go build .
+	CGO_ENABLED=0 go build -o ../. .
 
 docker-build:
 	docker build -t $(DUSER)/$(PKG_NAME) .
