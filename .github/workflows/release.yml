@@ -17,4 +17,4 @@ jobs:
         goos: linux
         goarch: amd64
         project_path: src
-        build_command: CGO_ENABLED=0 go build .
+        pre_command: CGO_ENABLED=0
