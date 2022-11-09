@@ -16,5 +16,4 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         goos: linux
         goarch: amd64
-        project_path: src
-        build_command: make
+        build_command: make go-build
