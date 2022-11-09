@@ -4,6 +4,7 @@
 <br/>
 
 [![Docker](https://github.com/aceberg/go-LinkSaver/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/aceberg/go-LinkSaver/actions/workflows/docker-publish.yml)
+[![Binary-release](https://github.com/aceberg/go-LinkSaver/actions/workflows/release.yml/badge.svg)](https://github.com/aceberg/go-LinkSaver/actions/workflows/release.yml)
 ![Docker Image Size (latest semver)](https://img.shields.io/docker/image-size/aceberg/go-linksaver)
 
 Simple and lightweight link saver   
