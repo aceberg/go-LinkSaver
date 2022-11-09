@@ -17,7 +17,7 @@ fmt:
 
 go-build:
 	cd src && \
-	CGO_ENABLED=0 go build -o build-artifacts-1667922535/go-LinkSaver .
+	CGO_ENABLED=0 go build -o ../go-LinkSaver .
 
 docker-build:
 	docker build -t $(DUSER)/$(PKG_NAME) .
