@@ -24,7 +24,7 @@ jobs:
           env-file: .version
 
       - name: Rename archive
-        run: cp go-LinkSaver.tar.gz go-LinkSaver-${{ env.VERSION }}.tar.gz
+        run: mv go-LinkSaver.tar.gz go-LinkSaver-${{ env.VERSION }}.tar.gz
 
       - name: Upload the artifacts
         uses: skx/github-action-publish-binaries@master
