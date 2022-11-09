@@ -18,9 +18,17 @@ jobs:
         with:
           builder: .github/build
 
+      - name: Get version tag from env file
+        uses: c-py/action-dotenv-to-setenv@v2
+        with:
+          env-file: .version
+
+      - name: Rename archive
+        run: cp go-LinkSaver.tar.gz go-LinkSaver-${{ env.VERSION }}.tar.gz
+
       - name: Upload the artifacts
         uses: skx/github-action-publish-binaries@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          args: 'go-LinkSaver'
+          args: 'go-LinkSaver*'
